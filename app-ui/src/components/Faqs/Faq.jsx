@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./faq.css"
 
 export default function () {
+
+
   return (
-    <div id="faq" className='w-[100vw] text-white relative h-[92vh] gap-5 bg-[#1B1212] nnn flex-col'>  
+    <div id="faq" className='face w-[100vw] text-white relative h-[90.8vh] gap-5 bg-[#1B1212] nnn flex-col'>  
        <h2 className=' font-[fantasy] text-[30vw] opacity-40 faqtext absolute bottom-0'> <span className='faqtrans'>F</span><span className='faqtrans'>A</span><span className='faqtrans'>Q</span><span className='faqtrans'>s</span> </h2>
               <div className="qn">What is Gigमित्र ?
               <img width="48" height="48" className='absolute top-[20%] right-[2%] h-[20px] w-[20px]'  src="./img/add.png" alt="plus-math"/>

@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "./Home.scss";
 import Featured from "../../components/featured/Featured";
-import TrustedBy from "../../components/trustedBy/TrustedBy";
-// import Slide from "../../components/slide/Slide";
-import CatCard from "../../components/catCard/CatCard";
-import ProjectCard from "../../components/projectCard/ProjectCard";
-import { cards, projects } from "../../data";
 import Faq from "../../components/Faqs/Faq";
+import { MyContext } from "../../context/Context";
 
 
 function Home() {
-  
+  const { setShownav, setUserInfo } = useContext(MyContext)
+  setShownav(true)
     const videoref = useRef()
     const circ = useRef()
 
@@ -26,6 +23,13 @@ function Home() {
   const hidctoun = () => {
     circ.current.style.opacity = 0
   }
+
+  useEffect(() => {
+    const user = localStorage.getItem("userInfo")
+    if(user){
+      setUserInfo(JSON.parse(user))
+    }
+  }, [])
 
  
   const [textx,settextx] = useState("Click to unmute")
@@ -43,12 +47,6 @@ function Home() {
   return (
     <div className="home relative">
       <Featured />
-      {/* <TrustedBy /> */}
-      {/* <Slide slidesToShow={5} arrowsScroll={5}>
-        {cards.map((card) => (
-          <CatCard key={card.id} card={card} />
-        ))}
-      </Slide> */}
       <div id="contvid" className="w-screen h-[200vh]">
       <div className="features sticky top-[50px] w-[100vw] h-screen  overflow-hidden viddabba">
         <div className="container w-full h-full relative ">
@@ -77,8 +75,8 @@ function Home() {
           COURSES
         </div>
       <div className="explore w-screen  relative flex items-center justify-center h-[200px] ">
-        <div className=" w-full  overflow-hidden text-white relative h-full flex">
-          <div className="items anims  flex w-full items-center h-full justify-around">
+        <div className=" w-full  animcover overflow-hidden text-white relative h-full flex">
+          <div className="items anims relative z-[1000]  flex w-full items-center h-full justify-around">
             <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg"
@@ -161,7 +159,7 @@ function Home() {
               <span>Photography</span>
             </div>
           </div>
-          <div className="items anims2 left-[100%]  absolute flex w-full items-center h-full justify-around">
+          <div className="items anims2  z-[1000] left-[100%]  absolute flex w-full items-center h-full justify-around">
             <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg"

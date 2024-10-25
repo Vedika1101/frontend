@@ -6,15 +6,15 @@
   color: white;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 9999;
   transition: 0.5s all ease;
 
   &.active {
+    background-color: #1B1212;
+    color: white;
     input{
       background-color: #3a1078;
     }
-    background-color: #1B1212;
-    color: white;
 
     button {
       background-color: white !important;

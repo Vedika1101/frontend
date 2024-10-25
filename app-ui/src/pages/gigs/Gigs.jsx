@@ -14,10 +14,10 @@ function Gigs() {
     setOpen(false);
   };
 
-  const apply = ()=>{
-    console.log(minRef.current.value)
-    console.log(maxRef.current.value)
-  }
+  const apply = () => {
+    console.log(minRef.current.value);
+    console.log(maxRef.current.value);
+  };
 
   return (
     <div className="gigs">
@@ -39,15 +39,15 @@ function Gigs() {
             <span className="sortType">
               {sort === "sales" ? "Best Selling" : "Newest"}
             </span>
-            <img src="./img/down.png" alt="" onClick={() => setOpen(!open)} />
+            <img src="/img/down.png" alt="Sort Icon" onClick={() => setOpen(!open)} />
             {open && (
               <div className="rightMenu">
                 {sort === "sales" ? (
                   <span onClick={() => reSort("createdAt")}>Newest</span>
                 ) : (
                   <span onClick={() => reSort("sales")}>Best Selling</span>
-                  )}
-                  <span onClick={() => reSort("sales")}>Popular</span>
+                )}
+                <span onClick={() => reSort("popular")}>Popular</span>
               </div>
             )}
           </div>
